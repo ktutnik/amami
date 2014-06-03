@@ -1,18 +1,18 @@
 {
-    "versionCode": 1,
-    "shortName": "AmamiBahasa",
-    "uuid": "272e2427-dc95-4d79-872d-f0818b6df812",
-    "companyName": "ktutnik",
+    "longName": "AmamiBahasa",
     "capabilities": [
         ""
     ],
+    "uuid": "272e2427-dc95-4d79-872d-f0818b6df812",
+    "versionLabel": "1.0",
     "resources": {
         "media": []
     },
+    "companyName": "ktutnik",
+    "versionCode": 1,
+    "shortName": "AmamiBahasa",
     "watchapp": {
         "watchface": true
     },
-    "versionLabel": "1.0",
-    "longName": "AmamiBahasa",
     "appKeys": {}
 }

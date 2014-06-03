@@ -1,5 +1,6 @@
 #include "time_as_words.h"
 
+//hanya untuk display Jam
 static const char* const HOURS[] = {
   "",
 	"satu",
@@ -16,6 +17,7 @@ static const char* const HOURS[] = {
   "duabls"
 };
 
+//hanya untuk display menit
 static const char* const ONES[] = {
   "",
 	"satu",
