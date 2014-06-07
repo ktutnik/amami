@@ -22,10 +22,10 @@ static void battery_callback(BatteryChargeState state){
     snprintf(battery_text, sizeof(battery_text), "Mengisi %d%%", state.charge_percent);
     text_layer_set_text(charging_layer, battery_text);
   }
-  if(state.is_plugged & !state.is_charging){
+  /*else if(state.is_plugged){
     layer_set_hidden(text_layer_get_layer(charging_layer), false);
     text_layer_set_text(charging_layer, "Penuh");
-  }
+  }*/
   else {
     layer_set_hidden(text_layer_get_layer(charging_layer), true);
   }
@@ -115,12 +115,18 @@ static void do_init(void) {
   Layer *root_layer = window_get_root_layer(window);
   GRect frame = layer_get_frame(root_layer);
   
-  charging_layer = my_create_layer(GRect(0, 0, frame.size.w - 2, 26), FONT_KEY_ROBOTO_CONDENSED_21, GTextAlignmentCenter, GColorWhite, GColorClear);
-  hour_layer = my_create_layer(GRect(0, 0, frame.size.w, 50), FONT_KEY_BITHAM_42_BOLD, GAlignLeft, GColorWhite, GColorClear);
-  minute_one_layer = my_create_layer(GRect(0, 38, frame.size.w, 50), FONT_KEY_BITHAM_42_LIGHT, GAlignLeft, GColorWhite, GColorClear);
-  minute_two_layer = my_create_layer(GRect(0, 75, frame.size.w, 50), FONT_KEY_BITHAM_42_LIGHT, GAlignLeft, GColorWhite, GColorClear);
-  battery_layer = my_create_layer(GRect(0, 0, frame.size.w - 2, 26), FONT_KEY_ROBOTO_CONDENSED_21, GAlignRight, GColorWhite, GColorClear);
-  date_layer = my_create_layer(GRect(0, 19, frame.size.w - 2, 26), FONT_KEY_ROBOTO_CONDENSED_21, GAlignRight, GColorWhite, GColorClear);
+  charging_layer = my_create_layer(GRect(0, 0, frame.size.w - 2, 26), FONT_KEY_ROBOTO_CONDENSED_21, 
+                                   GTextAlignmentCenter, GColorWhite, GColorClear);
+  hour_layer = my_create_layer(GRect(0, 0, frame.size.w, 50), FONT_KEY_BITHAM_42_BOLD, GAlignLeft, 
+                               GColorWhite, GColorClear);
+  minute_one_layer = my_create_layer(GRect(0, 38, frame.size.w, 50), FONT_KEY_BITHAM_42_LIGHT, 
+                                     GAlignLeft, GColorWhite, GColorClear);
+  minute_two_layer = my_create_layer(GRect(0, 75, frame.size.w, 50), FONT_KEY_BITHAM_42_LIGHT, 
+                                     GAlignLeft, GColorWhite, GColorClear);
+  battery_layer = my_create_layer(GRect(0, 0, frame.size.w - 2, 26), FONT_KEY_ROBOTO_CONDENSED_21, 
+                                  GAlignRight, GColorWhite, GColorClear);
+  date_layer = my_create_layer(GRect(0, 19, frame.size.w - 2, 26), FONT_KEY_ROBOTO_CONDENSED_21, 
+                               GAlignRight, GColorWhite, GColorClear);
   
   text_layer_set_text(battery_layer, "100%");
   
